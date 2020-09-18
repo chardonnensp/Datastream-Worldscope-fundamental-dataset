@@ -146,8 +146,8 @@ nrow(rawStaticData) - length(unique(rawStaticData$Symbol))
 ### join dynamic and static data
 rawData <- rawStaticData %>% inner_join(TSdata)
 
-#rm(rawStaticData, TSdata)
+rm(rawStaticData, TSdata)
 
 
-#write.csv2(rawData, "rawdata/rawData.csv", row.names=FALSE)
-#rawData <- read.csv2("rawData.csv", header = TRUE)
+write.csv2(rawData, "rawdata/rawData.csv", row.names=FALSE)
+
