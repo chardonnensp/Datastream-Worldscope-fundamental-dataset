@@ -143,11 +143,12 @@ rawStaticData$Region2 <- gsub("European", "EU", rawStaticData$Region) # create s
 #N of duplicates
 nrow(rawStaticData) - length(unique(rawStaticData$Symbol))
 
+
 ### join dynamic and static data
 rawData <- rawStaticData %>% inner_join(TSdata)
+nrow(rawData)
 
 rm(rawStaticData, TSdata)
 
-
 write.csv2(rawData, "rawdata/rawData.csv", row.names=FALSE)
-
+#rawData <- read_csv2("../Requests-to-rawData/rawdata/rawData.csv")
