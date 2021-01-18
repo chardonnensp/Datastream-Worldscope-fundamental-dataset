@@ -2,7 +2,7 @@
 This guide aims to fully describe how to download and merge Refinitiv (formerly Thomson Reuters) Datastream Worldscope data into one comprehensive dataset of yearly stock quoted financial statements. 
 
 # Motivation
-Empirical databases such as Compustat provide a fully structured dataset of stock quoted firms. However, the Compustat access may be costly for some institutions. Refinitiv Eikon offers an unstructured alternative. Because of the lack in structure, different individuals may result in different Worldscope datasets which limits the reproducability of studies. Therefore, this repository is a proposition on how to download and merge Worldscope data via the Refinitiv Eikon Excel Add-in. 
+Empirical databases such as Compustat provide a fully structured dataset of stock quoted firms. However, the Compustat access may be available in some institutions. Refinitiv Eikon offers an unstructured alternative. Because of the lack in structure, different individuals may result in different Worldscope datasets which limits the reproducability of studies. Therefore, this repository is a proposition on how to download and merge Worldscope data via the Refinitiv Eikon Excel Add-in. 
 
 # Requirements
 To access the Refinitv Eikon database, your institution needs to have an account. Further, you need Microsoft Excel with the installed Add-in, which can be downloaded here: https://eikon.thomsonreuters.com/index.html 
@@ -28,4 +28,5 @@ a) Make the following selections as shown in the screenshot:
  Now you have a world wide selection of all qualified equities! In January 2021 those are over 133 000 firms. 
  To export those firms, they must be fewer than 10 000. 
 
-b) Select some of the countries you want to download data by filtering them in "Market" that your selection does not exceed 10 000 firms. 
+b) Select some of the countries you want to download data by filtering them in "Market" that your selection does not exceed 10 000 firms. Then you will see a small Excel symbol on the top right corner of the window. 
+ ![Market selection ](/Market%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
