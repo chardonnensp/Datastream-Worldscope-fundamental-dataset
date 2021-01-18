@@ -27,3 +27,11 @@ a6) Quote: Primary, exclues secondary quotes
  
  Now you have a world wide selection of all qualified equities! In January 2021 those are over 75 000 firms. 
  To export those firms, they must be fewer than 10 000. 
+
+1
+2
+3
+
+4
+
+5
