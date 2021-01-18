@@ -15,7 +15,7 @@ This guide consists of three different parts:
 
 # Selecting the firms and downloading firm identifiers:
 a) Make the following selections as shown in the screenshot: 
-  a1) Open the "Refinitiv Eikon Datastream" tab
+a1) Open the "Refinitiv Eikon Datastream" tab
   a2) Go on "Find Series"
   a3) Category: Equities
   a4) Type: Equity, exclude ETF's, and other type of funds
