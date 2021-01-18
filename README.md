@@ -16,4 +16,7 @@ This guide consists of three different parts:
 # Selecting the firms and downloading firm identifiers:
 a) 
 text
-![Refiniv Eikon Datastream selection parameters](https://github.com/chardonnensp/Requests-to-rawData/blob/master/Static%20Data%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters)
+![Refiniv Eikon Datastream selection parameters](https://github.com/chardonnensp/Requests-to-rawData/blob/master/Static%20Data%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
+
+
+![Refiniv Eikon Datastream selection parameters](blob/master/Static%20Data%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
