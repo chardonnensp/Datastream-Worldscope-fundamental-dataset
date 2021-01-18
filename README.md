@@ -1,8 +1,10 @@
-# Overview
-This guide aims to fully describe how to download and merge Refinitiv (formerly Datastream) Worldscope data into one dataset. 
+# About
+This guide aims to fully describe how to download and merge Refinitiv (formerly Datastream) Worldscope data into one comprehensive dataset of yearly stock quoted financial statements. 
 
 # Motivation
-Empirical databases such as Compustat provide a fully structured dataset of stock quoted firms. However, the Compstat access may be costly for some institutions. Refinitiv Eikon offers an unstructured alternative. Because of the lack in structure, different individuals may result in different Worldscope datasets which limits the reproducability of studies. Therefore, this repository is a proposition on how to download and merge Worldscope data via the Refinitiv Eikon Excel Add-in. 
+Empirical databases such as Compustat provide a fully structured dataset of stock quoted firms. However, the Compustat access may be costly for some institutions. Refinitiv Eikon offers an unstructured alternative. Because of the lack in structure, different individuals may result in different Worldscope datasets which limits the reproducability of studies. Therefore, this repository is a proposition on how to download and merge Worldscope data via the Refinitiv Eikon Excel Add-in. 
 
 # Requirements
-To access the Refinitv Eikon database, your institution needs to have an account. 
+To access the Refinitv Eikon database, your institution needs to have an account. Further, you need Microsoft Excel with the installed Add-in, which can be downloaded here: https://eikon.thomsonreuters.com/index.html 
+
+
