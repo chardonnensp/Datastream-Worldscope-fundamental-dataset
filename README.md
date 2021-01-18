@@ -18,5 +18,8 @@ a)
 text
 ![Refiniv Eikon Datastream selection parameters](https://github.com/chardonnensp/Requests-to-rawData/blob/master/Static%20Data%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
 
-
-![Refiniv Eikon Datastream selection parameters](blob/master/Static%20Data%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
+![Refiniv Eikon Datastream selection parameters](chardonnensp/Requests-to-rawData/blob/master/Static%20Data%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
+![Refiniv Eikon Datastream selection parameters](/Requests-to-rawData/blob/master/Static%20Data%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
+![Refiniv Eikon Datastream selection parameters](/blob/master/Static%20Data%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
+![Refiniv Eikon Datastream selection parameters](/master/Static%20Data%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
+![Refiniv Eikon Datastream selection parameters](/Static%20Data%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
