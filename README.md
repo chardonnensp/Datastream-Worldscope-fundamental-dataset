@@ -31,3 +31,7 @@ a) Make the following selections as shown in the screenshot:
 b) Select some of the countries you want to download data by filtering them in "Market" that your selection does not exceed 10 000 firms. Then you will see a small Excel symbol on the top right corner of the window. Klick on it!  
 If your selected countries have more than 10 000 firms (e.g. the United States) use the sector filters (or any other filters) to temporarly include and exclude firms. 
  ![Market selection ](/Market%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
+ 
+c) Combine your downloaded Excel sheets by arranging the output underneigh each other. Make sure you only copy the data and not the variable names. 
+
+d) 
