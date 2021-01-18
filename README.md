@@ -16,4 +16,4 @@ This guide consists of three different parts:
 # Selecting the firms and downloading firm identifiers:
 a) 
 
-![Alt text](/Static Data selection.png?raw=true "Optional Title")
+![Alt text](https://github.com/chardonnensp/Requests-to-rawData/blob/master/Static%20Data%20selection.PNG?raw=true "Optional Title")
