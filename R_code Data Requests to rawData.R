@@ -1,6 +1,6 @@
 ### This script imports and treats dynamic and static data to a rawdata file.
 
-
+## Install the following libraries if you have not yet done so.  
 library(tidyverse)
 library(reshape2)
 library(data.table)
@@ -60,8 +60,8 @@ colname <- c(4:length(TSdata))
 TSdata[colname] <- lapply(TSdata[colname], as.numeric)
 
 
-'
-## set variables back one year
+## Optionally, the time-series variables can be set back by one year. 
+'## set variables back one year
 nums <- names(TSdata)
 bookValuesBeginningYear <- subset(TSdata, select = nums) # create subset
 bookValuesBeginningYear$Year <- bookValuesBeginningYear$Year+1
@@ -73,6 +73,7 @@ names(bookValuesBeginningYear) <- nums # assign _t_1 names to DF
 TSdata <- merge(TSdata, bookValuesBeginningYear, by=c("Symbol", "Year", "AccountingStandards"))
 rm(bookValuesBeginningYear)
 '
+
 ## reorder variables
 nums <- names(TSdata)
 nums <- names(TSdata[3:length(nums)]) # remove Symbol and Year
