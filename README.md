@@ -14,15 +14,18 @@ This guide consists of three different parts:
 3. Merging the data. 
 
 # Selecting the firms and downloading firm identifiers:
-a) Make the following selections as shown in the screenshot:  
-a1) Open the "Refinitiv Eikon Datastream" tab  
-a2) Go on "Find Series"  
-a3) Category: Equities  
-a4) Type: Equity, exclude ETF's, and other type of funds  
-a5) Security: Major, exclude minor securities  
-a6) Quote: Primary, exclues secondary quotes  
+a) Make the following selections as shown in the screenshot:
+
+  a1) Open the "Refinitiv Eikon Datastream" tab  
+  a2) Go on "Find Series"  
+  a3) Category: Equities  
+  a4) Type: Equity, exclude ETF's, and other type of funds  
+  a5) Security: Major, exclude minor securities  
+  a6) Quote: Primary, exclues secondary quotes  
   
  ![Refiniv Eikon Datastream selection parameters](/Static%20Data%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
  
- Now you have a world wide selection of all qualified equities! In January 2021 those are over 75 000 firms. 
+ Now you have a world wide selection of all qualified equities! In January 2021 those are over 133 000 firms. 
  To export those firms, they must be fewer than 10 000. 
+
+b) Select some of the countries you want to download data by filtering them in "Market" that your selection does not exceed 10 000 firms. 
