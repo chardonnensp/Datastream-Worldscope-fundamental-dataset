@@ -15,3 +15,5 @@ This guide consists of three different parts:
 
 # Selecting the firms and downloading firm identifiers:
 a) 
+
+![Alt text](/Static Data selection.jpg?raw=true "Optional Title")
