@@ -15,12 +15,13 @@ This guide consists of three different parts:
 
 # Selecting the firms and downloading firm identifiers:
 a) Make the following selections as shown in the screenshot: 
+
 a1) Open the "Refinitiv Eikon Datastream" tab
-  a2) Go on "Find Series"
-  a3) Category: Equities
-  a4) Type: Equity, exclude ETF's, and other type of funds
-  a5) Security: Major, exclude minor securities
-  a6) Quote: Primary, exclues secondary quotes
+a2) Go on "Find Series"
+a3) Category: Equities
+a4) Type: Equity, exclude ETF's, and other type of funds
+a5) Security: Major, exclude minor securities
+a6) Quote: Primary, exclues secondary quotes
   
  ![Refiniv Eikon Datastream selection parameters](/Static%20Data%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
  
