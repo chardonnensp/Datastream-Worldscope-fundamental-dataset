@@ -34,5 +34,10 @@ If your selected countries have more than 10 000 firms (e.g. the United States) 
  
 c) Combine your downloaded Excel sheets by arranging the output underneigh each other. Make sure you only copy the data and not the variable names. 
 
-d) The native sector classification in column J might not be sufficient for most studies. Therfore, it is necessairy to retrieve additional industry identifiers (here we add the Datastream industry group (INDC) and the SIC (WC07021). Open the template and paste in your static data. Click in cell M1 and adapt the following highlighted row length of your static data. 
+d) The native sector classification in column J might not be sufficient for most studies. Therfore, it is necessairy to retrieve additional industry identifiers (here we add the Datastream industry group (INDC) and the SIC (WC07021). Open the template and paste your static data in the template. Click in cell M1 and adapt the following highlighted row length of your static data. It may take a while to retrieve the data, depending on the number of firms. 
 ![Row length](/Screenshots/Row%20length.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
+
+e) Save the file in the folder /rawdata/Static Data. Now your static data is ready. 
+
+
+# Downloading the time-series data:
