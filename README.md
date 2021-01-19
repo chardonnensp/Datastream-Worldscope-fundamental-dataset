@@ -41,4 +41,4 @@ e) Save the file in the folder /rawdata/Static Data. Now your static data is rea
 
 
 # Downloading the time-series data:
-a) 
+a) Open the .xlsx file (![TSData_template](/Templates/TSData_template.xlsx?raw=true "TSData_template")
