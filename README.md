@@ -11,15 +11,14 @@ For very small requests the Datastream Web Service API might be an alternative (
 To access the Refinitv Eikon database, your institution needs to have an account. Further, you need Microsoft Excel with the installed Add-in, which can be downloaded here: https://eikon.thomsonreuters.com/index.html 
 
 
-## Guide
-
-# Overview
+# Guide
+## Overview
 This guide consists of three different parts: 
 1. Selecting the firms and downloading firm identifiers. 
 2. Downloading the time-series data.
 3. Merging the data. 
 
-# Selecting the firms and downloading firm identifiers:
+## Selecting the firms and downloading firm identifiers:
 a) Make the following selections as shown in the screenshot:
 
   a1) Open the "Refinitiv Eikon Datastream" tab  
@@ -48,7 +47,7 @@ e) Click in cell M1 and adapt the following highlighted row length of your stati
 f) Save the file in the folder /rawdata/Static Data. Now your static data is ready. 
 
 
-# Downloading the time-series data:
+## Downloading the time-series data:
 a) Open the .xlsx file ![TSData_template](/Templates/TSData_template.xlsx?raw=true "TSData_template"). 
 
 b) Paste your data in colum B from your StaticData.xlsx into column A of your TSData_template.xslx. Skip the column header. 
@@ -65,4 +64,4 @@ e) Save the file in the folder /rawdata/TS Data. Choose the filename carefully a
 
 f) Duplicate the file and save it under a different variable name. 
 
-g) Open it and change the expression. 
+g) Open it and change the expression. The ![Thomson Financial Worldscope](/Templates/Thomson%20Financial%20Worldscope.pdf?raw=true "Thomson Financial Worldscope")
