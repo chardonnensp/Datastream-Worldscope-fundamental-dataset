@@ -4,8 +4,14 @@ This guide aims to fully describe how to download and merge Refinitiv (formerly 
 # Motivation
 Empirical databases such as Compustat provide a fully structured dataset of stock quoted firms. However, the Compustat access may be available in some institutions. Refinitiv Eikon offers an unstructured alternative. Because of the lack in structure, different individuals may result in different Worldscope datasets which limits the reproducability of studies. Therefore, this repository is a proposition on how to download and merge Worldscope data via the Refinitiv Eikon Excel Add-in. Unfortunately, I cannot provide the full dataset because the data is owned by Refinitiv. Although the templates for the data download are provided. 
 
+# Alternatives
+For very small requests the Datastream Web Service API might be an alternative (https://developers.refinitiv.com/content/dam/devportal/api-families/eikon/datastream-web-service/documentation/manuals-and-guides/datastream-refinitiv-dsws-r.pdf).
+
 # Requirements
 To access the Refinitv Eikon database, your institution needs to have an account. Further, you need Microsoft Excel with the installed Add-in, which can be downloaded here: https://eikon.thomsonreuters.com/index.html 
+
+
+## Guide
 
 # Overview
 This guide consists of three different parts: 
@@ -34,11 +40,29 @@ If your selected countries have more than 10 000 firms (e.g. the United States) 
  
 c) Combine your downloaded Excel sheets by arranging the output underneigh each other. Make sure you only copy the data and not the variable names. 
 
-d) The native sector classification in column J might not be sufficient for most studies. Therfore, it is necessairy to retrieve additional industry identifiers (here we add the Datastream industry group (INDC) and the SIC (WC07021). Open the template (![StaticData_template](/Templates/StaticData_template.xlsx?raw=true "StaticData_template") and paste your static data in the template. Click in cell M1 and adapt the following highlighted row length of your static data. It may take a while to retrieve the data, depending on the number of firms. 
+d) The native sector classification in column J might not be sufficient for most studies. Therfore, it is necessairy to retrieve additional industry identifiers (here we add the Datastream industry group (INDC) and the SIC (WC07021). Open the template (![StaticData_template](/Templates/StaticData_template.xlsx?raw=true "StaticData_template") and paste your static data in the template. 
+
+e) Click in cell M1 and adapt the following highlighted row length of your static data. It may take a while to retrieve the data, depending on the number of firms. 
 ![Row length](/Screenshots/Row%20length.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
 
-e) Save the file in the folder /rawdata/Static Data. Now your static data is ready. 
+f) Save the file in the folder /rawdata/Static Data. Now your static data is ready. 
 
 
 # Downloading the time-series data:
-a) Open the .xlsx file (![TSData_template](/Templates/TSData_template.xlsx?raw=true "TSData_template")
+a) Open the .xlsx file ![TSData_template](/Templates/TSData_template.xlsx?raw=true "TSData_template"). 
+
+b) Paste your data in colum B from your StaticData.xlsx into column A of your TSData_template.xslx. Skip the column header. 
+
+c) Click on cell B1, where the Datastream is rooted and if needed make the following changes:
+  c1) Adapt the row number to the length of your column A. 
+  c2) Change the expression if needed (here WC08001 refers to the market capitalization).
+  c3) Change the start date. 
+  c4) Change the end date.
+
+d) Refresh the data. Again, this might take a while, depending on the size of the request. 
+
+e) Save the file in the folder /rawdata/TS Data. Choose the filename carefully as it will be the variable name in the final dataset. 
+
+f) Duplicate the file and save it under a different variable name. 
+
+g) Open it and change the expression. 
