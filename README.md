@@ -64,4 +64,12 @@ e) Save the file in the folder /rawdata/TS Data. Choose the filename carefully a
 
 f) Duplicate the file and save it under a different variable name. 
 
-g) Open it and change the expression. The ![Thomson Financial Worldscope](/Templates/Thomson%20Financial%20Worldscope.pdf?raw=true "Thomson Financial Worldscope")
+g) Open it and change the expression. The ![Thomson Financial Worldscope](/Templates/Thomson%20Financial%20Worldscope.pdf?raw=true "Thomson Financial Worldscope") provides a comprehensive list of the Worldscope code. If you look up for instance the code for total assets (02999), your formula must have the expression "WC02999" to work. 
+
+
+## Merging the data:
+a) Open the R code. 
+
+b) Make sure you saved your files in the corresponding folder. 
+
+c) Run the code. 
