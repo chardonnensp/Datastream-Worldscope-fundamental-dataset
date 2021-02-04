@@ -13,7 +13,6 @@ ptm <- proc.time()
 
 #### Dynamic and Static Data----
 ### Dynamic Data
-#set working directory
 startyear <- 1986
 endyear <- 2019
 
@@ -95,12 +94,17 @@ TSdata <- TSdata[, nums] # reorder variables
 ## import static Data
 rawStaticData <- read_xlsx("rawdata/Static Data/StaticData.xlsx")
 
-#rawStaticData <- as.data.table(read.csv2("Static Data/StaticData.csv", header = TRUE))
-colname <- c("ISIN", "Industry", "SIC", "CompanyName", names(rawStaticData)[5:10], "Country", names(rawStaticData)[12:length(rawStaticData)])
+colname <- c("CompanyName", "Symbol", "RIC", "StartDate", "History", "Category", "Exchange", "Country", "Currency", "Sector", "FullName", "Activity", "Industry", "SIC")
 names(rawStaticData) <- colname
 
+'colname <- c("CompanyName", names(rawStaticData)[2:7], "Country", names(rawStaticData)[9:12], "Industry", "SIC")
+names(rawStaticData) <- colname
+
+names(rawStaticData)
+'
+
 ## select Data
-rawStaticData <- rawStaticData[, c("Symbol", "CompanyName", "Currency", "Country", "Industry", "Sector", "SIC", "Activity", "Hist.")]
+rawStaticData <- rawStaticData[, c("Symbol", "CompanyName", "Currency", "Country", "Industry", "Sector", "SIC", "Activity", "History")]
 
 rawStaticData$SICshort <- as.character(rawStaticData$SIC)
 rawStaticData$SICshort <- as.numeric(substr(rawStaticData$SICshort, 1, 2))
@@ -139,7 +143,7 @@ rawStaticData$Region <- as.factor(rawStaticData$Region)
 summary(rawStaticData$Country)'
 
 ## Rename variables
-rawStaticData$Region2 <- gsub("European", "EU", rawStaticData$Region) # create shortname of Region EU instaed of European 
+rawStaticData$Region2 <- gsub("European", "EU", rawStaticData$Region) # create shortname of Region EU instead of European 
 
 #N of duplicates
 nrow(rawStaticData) - length(unique(rawStaticData$Symbol))
@@ -152,4 +156,14 @@ nrow(rawData)
 rm(rawStaticData, TSdata)
 
 write.csv2(rawData, "rawdata/rawData.csv", row.names=FALSE)
-#rawData <- read_csv2("../Requests-to-rawData/rawdata/rawData.csv")
+
+
+
+rawData$EBEI_S <- rawData$EBEI/rawData$TotalAssets
+rawData$EBEI_S <- winsor(rawData$EBEI_S, trim = 0.01)
+
+hist(rawData$EBEI_S, breaks = 100000, xlim = c(-.15, .15))
+
+rawData$EBEI_S <- replace(rawData$EBEI_S, rawData$EBEI_S == 0, NA)
+
+
