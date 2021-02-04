@@ -38,15 +38,9 @@ my_data <- melt(my_data, id = c("Symbol")) # melt yearly data. Years as columns 
 
 ## data manipulation
 colnames(my_data) <- c("Symbol", "Year", "Value", "Variable") # name variables
-#my_data$Symbol <- gsub("\\s*\\([^\\)]+\\)", "", my_data$Symbol) # remove (WC.....) after Symbol Code
 my_data$Symbol <- as.factor(my_data$Symbol) # force Symbol into factor
-#my_data$Symbol <- replace(my_data$Symbol, my_data$Symbol == "", NA) # replace empty Symbol fields with NA
 my_data$Year <- as.integer(my_data$Year)+startyear-1 # force Year into integer
-#my_data$Value <- as.numeric(as.character(my_data$Value)) # force values into nummeric
 my_data$Variable <- as.factor(my_data$Variable) # force Variable into factor
-#my_data <- my_data[complete.cases(my_data[ , "Symbol"]),] # remove rows with missing Symbol
-str(my_data)
-#head(my_data)
 
 
 # dcast variables into seperate columns
@@ -59,34 +53,12 @@ colname <- c(4:length(TSdata))
 TSdata[colname] <- lapply(TSdata[colname], as.numeric)
 
 
-## Optionally, the time-series variables can be set back by one year. 
-'## set variables back one year
-nums <- names(TSdata)
-bookValuesBeginningYear <- subset(TSdata, select = nums) # create subset
-bookValuesBeginningYear$Year <- bookValuesBeginningYear$Year+1
-nums <- paste0(nums, "_t_1") # add _t_1 to each variable
-nums[1] <- "Symbol" # manually overwrite Symbol
-nums[2] <- "Year" # manually overwrite Year
-nums[3] <- "AccountingStandards" # manually overwrite AccountingStandards
-names(bookValuesBeginningYear) <- nums # assign _t_1 names to DF
-TSdata <- merge(TSdata, bookValuesBeginningYear, by=c("Symbol", "Year", "AccountingStandards"))
-rm(bookValuesBeginningYear)
-'
-
 ## reorder variables
 nums <- names(TSdata)
 nums <- names(TSdata[3:length(nums)]) # remove Symbol and Year
 nums <- sort(nums) # sort variables alphabetically
 nums <- c("Symbol", "Year", nums) # add Symbol and Year
 TSdata <- TSdata[, nums] # reorder variables
-
-
-#write_csv2(TSdata, "rawdata/TSdata.csv")
-#TSdata <- read_csv2("rawdata/TSdata.xlsx")
-
-
-
-
 
 
 
@@ -97,57 +69,23 @@ rawStaticData <- read_xlsx("rawdata/Static Data/StaticData.xlsx")
 colname <- c("CompanyName", "Symbol", "RIC", "StartDate", "History", "Category", "Exchange", "Country", "Currency", "Sector", "FullName", "Activity", "Industry", "SIC")
 names(rawStaticData) <- colname
 
-'colname <- c("CompanyName", names(rawStaticData)[2:7], "Country", names(rawStaticData)[9:12], "Industry", "SIC")
-names(rawStaticData) <- colname
-
-names(rawStaticData)
-'
-
 ## select Data
 rawStaticData <- rawStaticData[, c("Symbol", "CompanyName", "Currency", "Country", "Industry", "Sector", "SIC", "Activity", "History")]
 
 rawStaticData$SICshort <- as.character(rawStaticData$SIC)
 rawStaticData$SICshort <- as.numeric(substr(rawStaticData$SICshort, 1, 2))
 
-
-## create Regions US and European
-#NCountries <- rawStaticData[, .N, by = "Country"]
-#NCountries <- NCountries[order(NCountries$N, decreasing = T),]
-
 rawStaticData$Region <- replace(rawStaticData$Country, !rawStaticData$Country == "United States", "European")
 rawStaticData$Region <- replace(rawStaticData$Region, rawStaticData$Region == "United States", "US")
 rawStaticData$Region <- as.factor(rawStaticData$Region)
 str(rawStaticData)
 
-### old mapping
-'
-#Replace individual European countries with Region "European"
-rawStaticData$Region <- as.character(rawStaticData$Region)
-#US: USA, JP: Japan, CN: China, CA: Canada, GB: Great Britain, IN: India, ZA: South Africa, KR: Korea, TW: Taiwan, FR: France, HK: Hongkong, 
-#DE: Germany, MY: Malaysia, VN: Vietnam, SE: Sweden, SG: Singapur, TH: Thailand, RU: Russia, IL: Israel, PL: Poland, ID: Indonesia, BR: Brazil, 
-#IT: Italy, CH: Switzerland, GR: Greece, TR: Turkey, NO: Norway, PK: Pakistan, ES: Spain, NL: Netherlands, DK: Denmark, PH: Philippines, 
-#BE: Belgium, CL: Chile, BG: Bulgaria, LK: Sri Lanka, JO: Jordan, EG: Egypt, FI: Finland, MX: Mexico, NZ: New Zealand, KW: Kuwait, PE: Peru, 
-#AT: Austria, IE: Ireland, SA: Saudi Arabia, RO: Rumania, CY: Cyprus, NG: Nigeria, BM: Bermuda, UA: Ukraine, AR: Argentina, AE: Emirates, 
-#PT: Portugal, OM: Oman, HR: Croatia, RS: Serbia, GG: Georgia, LU: Luxemburg, CO: Colombia, JE: Jemen, KY: Cayman Islands, IM: Isle of Men (UK), 
-#VG: Virgin Islands (UK)
-rawStaticData$Region <- replace(rawStaticData$Region, rawStaticData$Region == "GB" | rawStaticData$Region == "FR" | rawStaticData$Region == "DE" | 
-                            rawStaticData$Region == "SE" | rawStaticData$Region == "PL" | rawStaticData$Region == "IT" | rawStaticData$Region == "CH" | 
-                            rawStaticData$Region == "GR" | rawStaticData$Region == "NO" | rawStaticData$Region == "ES" | rawStaticData$Region == "NL" | 
-                            rawStaticData$Region == "DK" | rawStaticData$Region == "BE" | rawStaticData$Region == "BG" | rawStaticData$Region == "FI" | 
-                            rawStaticData$Region == "AT" | rawStaticData$Region == "IE" | rawStaticData$Region == "RO" | rawStaticData$Region == "CY" | 
-                            rawStaticData$Region == "UA" | rawStaticData$Region == "PT" | rawStaticData$Region == "HR" | rawStaticData$Region == "RS" | 
-                            rawStaticData$Region == "LU", "European")
-rawStaticData$Region <- as.factor(rawStaticData$Region)
-#rawStaticData <- rawStaticData[Region == "European" | Region == "US", ] # only use European and US data 
-#(not activated, because only firms located in European / US markets are taken into consideration)
-summary(rawStaticData$Country)'
 
 ## Rename variables
 rawStaticData$Region2 <- gsub("European", "EU", rawStaticData$Region) # create shortname of Region EU instead of European 
 
 #N of duplicates
 nrow(rawStaticData) - length(unique(rawStaticData$Symbol))
-
 
 ### join dynamic and static data
 rawData <- rawStaticData %>% inner_join(TSdata)
@@ -156,14 +94,4 @@ nrow(rawData)
 rm(rawStaticData, TSdata)
 
 write.csv2(rawData, "rawdata/rawData.csv", row.names=FALSE)
-
-
-
-rawData$EBEI_S <- rawData$EBEI/rawData$TotalAssets
-rawData$EBEI_S <- winsor(rawData$EBEI_S, trim = 0.01)
-
-hist(rawData$EBEI_S, breaks = 100000, xlim = c(-.15, .15))
-
-rawData$EBEI_S <- replace(rawData$EBEI_S, rawData$EBEI_S == 0, NA)
-
 
