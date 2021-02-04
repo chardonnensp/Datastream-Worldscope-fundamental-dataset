@@ -13,13 +13,13 @@ To access the Refinitv Eikon database, your institution needs to have an account
 
 # Guide
 ## Overview
-This guide consists of three different parts: 
+This guide consists of three steps: 
 1. Selecting the firms and downloading firm identifiers. 
 2. Downloading the time-series data.
 3. Merging the data. 
 
 ## Selecting the firms and downloading firm identifiers:
-a) Make the following selections as shown in the screenshot:
+a) Follow the selections as shown in the screenshot:
 
   a1) Open the "Refinitiv Eikon Datastream" tab  
   a2) Go on "Find Series"  
@@ -30,14 +30,13 @@ a) Make the following selections as shown in the screenshot:
   
  ![Refiniv Eikon Datastream selection parameters](/Screenshots/Static%20Data%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
  
- Now you have a world wide selection of all qualified equities! In January 2021 those are over 133 000 firms. 
- To export those firms, they must be fewer than 10 000. 
+ Now you have a world wide selection of all qualified equities! In January 2021 those are over 133 000 firms. To export those firms to Excel, they must be fewer than 10 000. 
 
-b) Select some of the countries you want to download data by filtering them in "Market" that your selection does not exceed 10 000 firms. Then you will see a small Excel symbol on the top right corner of the window. Klick on it!  
+b) Select some of the countries you want to download data for by filtering them in "Market" that your the number of selected is below 10 000 firms. Then a small Excel symbol on the top right corner of the window appears. Klick on it!  
 If your selected countries have more than 10 000 firms (e.g. the United States) use the sector filters (or any other filters) to temporarly include and exclude firms. 
  ![Market selection ](/Screenshots/Market%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
  
-c) Combine your downloaded Excel sheets by arranging the output underneigh each other. Make sure you only copy the data and not the variable names. 
+c) Combine your downloaded Excel sheets by copying the output underneigh each other. Make sure you only copy the data and not the variable headers such as . 
 
 d) The native sector classification in column J might not be sufficient for most studies. Therfore, it is necessairy to retrieve additional industry identifiers (here we add the Datastream industry group (INDC) and the SIC (WC07021). Open the template (![StaticData_template](/Templates/StaticData_template.xlsx?raw=true "StaticData_template") and paste your static data in the template. 
 
