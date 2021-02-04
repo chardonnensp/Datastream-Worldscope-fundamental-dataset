@@ -71,7 +71,8 @@ a) Open the R code.
 
 b) Make sure you saved your files in the corresponding folder. 
 
-c) Run the code. 
+c) Run the code. You now should have a structured dataset containing Worldscope data.
 
 
-# Any feedback is greatly appreciated!
+
+## I hope this guide is helpul to your. Any feedback is greatly appreciated!
