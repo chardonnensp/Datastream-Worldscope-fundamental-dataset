@@ -75,4 +75,4 @@ c) Run the code. You now should have a structured dataset containing Worldscope 
 
 
 
-## I hope this guide is helpul to your. Any feedback is greatly appreciated!
+## I hope this guide is helpul to you. Any feedback is greatly appreciated!
