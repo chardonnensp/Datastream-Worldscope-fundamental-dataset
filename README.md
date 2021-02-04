@@ -36,7 +36,7 @@ b) Select some of the countries you want to download data for by filtering them 
 If your selected countries have more than 10 000 firms (e.g. the United States) use the sector filters (or any other filters) to temporarly include and exclude firms. 
  ![Market selection ](/Screenshots/Market%20selection.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
  
-c) Combine your downloaded Excel sheets by copying the output underneigh each other. Make sure you only copy the data and not the variable headers such as . 
+c) Combine your downloaded Excel sheets by copying the output underneigh each other. Make sure you only copy the data and not the variable headers such as Name, Symbol, RIC and so forth. 
 
 d) The native sector classification in column J might not be sufficient for most studies. Therfore, it is necessairy to retrieve additional industry identifiers (here we add the Datastream industry group (INDC) and the SIC (WC07021). Open the template (![StaticData_template](/Templates/StaticData_template.xlsx?raw=true "StaticData_template") and paste your static data in the template. 
 
@@ -51,13 +51,13 @@ a) Open the .xlsx file ![TSData_template](/Templates/TSData_template.xlsx?raw=tr
 
 b) Paste your data in colum B from your StaticData.xlsx into column A of your TSData_template.xslx. Skip the column header. 
 
-c) Click on cell B1, where the Datastream is rooted and if needed make the following changes:
+c) Click on cell B1, where the Datastream formula is rooted and if needed make the following changes:
   c1) Adapt the row number to the length of your column A. 
   c2) Change the expression if needed (here WC08001 refers to the market capitalization).
   c3) Change the start date. 
   c4) Change the end date.
 
-d) Refresh the data. Again, this might take a while, depending on the size of the request. 
+d) Refresh the data. This might take a while, depending on the size of the request. 
 
 e) Save the file in the folder /rawdata/TS Data. Choose the filename carefully as it will be the variable name in the final dataset. 
 
@@ -72,3 +72,6 @@ a) Open the R code.
 b) Make sure you saved your files in the corresponding folder. 
 
 c) Run the code. 
+
+
+# Any feedback is greatly appreciated!
