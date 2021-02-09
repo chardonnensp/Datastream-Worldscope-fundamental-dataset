@@ -4,7 +4,7 @@
 install.packages("tidyverse")
 install.packages("reshape2")
 install.packages("data.table")
-install.packages("psych")
+install.packages("psych") 
 install.packages("readxl")
 
 
