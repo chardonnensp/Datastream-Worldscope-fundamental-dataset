@@ -4,5 +4,5 @@
 .Ruserdata
 -Chardonp.Rhistory
 rawdata/*.csv
-rawdata/Static Data/.xslx*
-rawdata/TS Data/.xslx*
+rawdata/StaticData/.xslx*
+rawdata/TSData/.xslx*
