@@ -5,7 +5,7 @@
 -Chardonp.Rhistory
 rawdata/*.csv
 rawdata/!empty*
-rawdata/StaticData/StaticData.xlsx
+rawdata/StaticData/*
 rawdata/StaticData/!empty*
 rawdata/TSData/*.xlsx
 rawdata/TSData/!empty*
