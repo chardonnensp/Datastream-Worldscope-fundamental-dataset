@@ -5,3 +5,5 @@
 -Chardonp.Rhistory
 .rawdata/rawData
 .rawdata/TSdata
+.rawdata/Static Data/*
+.rawdata/TS Data/*
