@@ -1,6 +1,14 @@
 ### This script imports and treats dynamic and static data to a rawdata file.
 
 ## Install the following libraries if you have not yet done so.  
+install.packages("tidyverse")
+install.packages("reshape2")
+install.packages("data.table")
+install.packages("psych")
+install.packages("readxl")
+
+
+## Load the libraries
 library(tidyverse)
 library(reshape2)
 library(data.table)
