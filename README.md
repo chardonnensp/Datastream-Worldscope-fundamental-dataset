@@ -11,7 +11,7 @@ For very small requests, the Datastream Web Service API might be an alternative 
 To access the Refinitiv Eikon database, your institution needs to have an account. Further, you need Microsoft Excel with the installed Add-in, which can be downloaded here: https://eikon.thomsonreuters.com/index.html 
 
 # Before you start
-For unexperienced R users it might seem tricky to get the right directory. Therefore, I recommend to klick on the green button "Download code" and export the content of this repository. Then, extract the folder and open it. Only work within this datastructure. 
+For unexperienced R users it might seem tricky to get the right directory. Therefore, I recommend to klick on the green button to download "Code" and the content of this repository. Then, extract the folder and open it. Only work within this datastructure. 
 
 # Guide
 ## Overview
@@ -69,9 +69,9 @@ g) Open it and change the expression. The ![Thomson Financial Worldscope](/Templ
 
 
 ## Merging the data:
-a) Open the R code. 
+a) Open the R project file called "Requests-to-rawData.Rproj". The project will automatically change your working directory. 
 
-b) Make sure you saved your files in the corresponding folder. 
+b) Make sure you saved your files in the corresponding folder as indicated above. 
 
 c) Run the code. You now should have a structured dataset containing Worldscope data.
 
