@@ -4,5 +4,6 @@
 .Ruserdata
 -Chardonp.Rhistory
 rawdata/*.csv
-rawdata/StaticData/*.xlsx
+#rawdata/StaticData/*.xlsx
+rawdata/StaticData/!.gitignore
 rawdata/TSData/*.xlsx
