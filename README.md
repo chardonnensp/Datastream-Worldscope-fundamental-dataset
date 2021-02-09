@@ -10,6 +10,8 @@ For very small requests, the Datastream Web Service API might be an alternative 
 # Requirements
 To access the Refinitiv Eikon database, your institution needs to have an account. Further, you need Microsoft Excel with the installed Add-in, which can be downloaded here: https://eikon.thomsonreuters.com/index.html 
 
+# Before you start
+
 
 # Guide
 ## Overview
