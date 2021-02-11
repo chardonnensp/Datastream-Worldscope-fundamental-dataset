@@ -1,12 +1,12 @@
 ### This script imports and treats dynamic and static data to a rawdata file.
 
 ## Install the following libraries if you have not yet done so.  
-install.packages("tidyverse")
+'install.packages("tidyverse")
 install.packages("reshape2")
 install.packages("data.table")
 install.packages("psych") 
 install.packages("readxl")
-
+'
 
 ## Load the libraries
 library(tidyverse)
@@ -25,14 +25,14 @@ startyear <- 1986
 endyear <- 2019
 
 ## import
-my_files <- list.files(path = "rawdata/TS Data/", 
+my_files <- list.files(path = "rawdata/TSData/", 
                        pattern = "\\.xlsx$", full.names = TRUE) 
 
 my_data <- lapply(X = my_files, 
                   FUN = read_xlsx, 
                   col_names = FALSE)
 
-my_files <- list.files(path = "rawdata/TS Data/", 
+my_files <- list.files(path = "rawdata/TSData/", 
                        pattern = "\\.xlsx$") 
 
 
@@ -72,14 +72,32 @@ TSdata <- TSdata[, nums] # reorder variables
 
 ### Static Data 
 ## import static Data
-rawStaticData <- read_xlsx("rawdata/Static Data/StaticData.xlsx")
+rawStaticData <- read_xlsx("rawdata/StaticData/StaticData.xlsx")
 
 colname <- c("CompanyName", "Symbol", "RIC", "StartDate", "History", "Category", "Exchange", "Country", "Currency", "Sector", "FullName", "Activity", "Industry", "SIC")
 names(rawStaticData) <- colname
 
-## select Data
+## Data cleaning
 rawStaticData <- rawStaticData[, c("Symbol", "CompanyName", "Currency", "Country", "Industry", "Sector", "SIC", "Activity", "History")]
 
+test <- rawStaticData %>%
+  select(Symbol, CompanyName, Currency, Country, Industry, Sector, SIC, Activity, History) %>%
+  str_locate_all()
+
+str_replace_all(test$CompanyName, " (XET)", replacement = "")
+
+str_sub(test$CompanyName, "() (XET)")
+str_remove(test$CompanyName, "XET")
+
+
+gsub(' (XET)', '', test$CompanyName,)
+
+
+
+
+str(test)
+
+# Create 2 digit SIC code
 rawStaticData$SICshort <- as.character(rawStaticData$SIC)
 rawStaticData$SICshort <- as.numeric(substr(rawStaticData$SICshort, 1, 2))
 
