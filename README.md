@@ -42,7 +42,7 @@ c) Combine your downloaded Excel sheets by copying and pasting the output below 
 
 d) The native sector classification in column J might not be sufficient for most studies. Therefore, it is necessary  to retrieve additional industry identifiers (here we add the Datastream industry group (INDC) and the SIC (WC07021). Open the template (![StaticData_template](/Templates/StaticData_template.xlsx?raw=true "StaticData_template") and paste your static data in the template. 
 
-e) Click in cell M1 and adapt the following highlighted row length of your static data. It may take a while to retrieve the data, depending on the number of firms. 
+e) Click in cells M1 N1 to adapt the following highlighted row length of your static data. It may take a while to retrieve the data, depending on the number of firms. 
 ![Row length](/Screenshots/Row%20length.PNG?raw=true "Refiniv Eikon Datastream selection parameters")
 
 f) Save the file in the folder /rawdata/Static Data. Now your static data is ready. 
@@ -65,7 +65,7 @@ e) Save the file in the folder /rawdata/TS Data. Choose the filename carefully a
 
 f) Duplicate the file and save it under a different variable name. 
 
-g) Open it and change the expression. The ![Thomson Financial Worldscope](/Templates/Thomson%20Financial%20Worldscope.pdf?raw=true "Thomson Financial Worldscope") provides a comprehensive list of the Worldscope code. If you look up for instance the code for total assets (02999), your formula must have the expression "WC02999" to work. 
+g) Open it and change the expression. The ![Thomson Financial Worldscope](/Templates/Thomson%20Financial%20Worldscope.pdf?raw=true "Thomson Financial Worldscope") provides a comprehensive list of the Worldscope code. If for instance you look up the code for total assets (02999), your formula must contain the expression "WC02999" to work. 
 
 
 ## Merging the data:
