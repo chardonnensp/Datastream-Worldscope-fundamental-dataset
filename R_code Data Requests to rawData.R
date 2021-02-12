@@ -45,7 +45,11 @@ my_data <- lapply(my_data, setNames, colname) # set column names for each DF in 
 my_data <- melt(my_data, id = c("Symbol")) # melt yearly data. Years as columns turn into SymbolYears rows
 
 ## data manipulation
-colnames(my_data) <- c("Symbol", "Year", "Value", "Variable") # name variables
+my_data <- my_data %>%
+  rename(Year = variable, 
+         Value = value,
+         Variable = L1) 
+
 my_data$Symbol <- as.factor(my_data$Symbol) # force Symbol into factor
 my_data$Year <- as.integer(my_data$Year)+startyear-1 # force Year into integer
 my_data$Variable <- as.factor(my_data$Variable) # force Variable into factor
@@ -71,53 +75,35 @@ TSdata <- TSdata[, nums] # reorder variables
 
 
 ### Static Data 
-## import static Data
-rawStaticData <- read_xlsx("rawdata/StaticData/StaticData.xlsx")
+## Import, rename and select relevant variables
+rawStaticData <- read_xlsx("rawdata/StaticData/StaticData.xlsx") %>%
+  rename(CompanyName = Name,
+         History = Hist.,
+         Country = Market,
+         Industry = `IND. GROUP MNEM`,
+         SIC = `SIC CODE 1`) %>%
+  select(Symbol, CompanyName, Currency, Country, Industry, Sector, SIC, Activity, History)
 
-colname <- c("CompanyName", "Symbol", "RIC", "StartDate", "History", "Category", "Exchange", "Country", "Currency", "Sector", "FullName", "Activity", "Industry", "SIC")
-names(rawStaticData) <- colname
+# Some European Companynames are duplicates with "(XET)" expression, with or without space before. Remove those expressions.
+newName <- str_remove(rawStaticData$CompanyName, "\\s\\(XET\\)")
+newName <- str_remove(newName, "\\(XET\\)")
+rawStaticData$CompanyName <- newName
+rm(newName)
+  
+# Remove firms that have a duplicate name
+rawStaticData <- rawStaticData %>%
+  distinct(CompanyName, .keep_all = T)
 
-## Data cleaning
-rawStaticData <- rawStaticData[, c("Symbol", "CompanyName", "Currency", "Country", "Industry", "Sector", "SIC", "Activity", "History")]
-
-test <- rawStaticData %>%
-  select(Symbol, CompanyName, Currency, Country, Industry, Sector, SIC, Activity, History) %>%
-  str_locate_all()
-
-str_replace_all(test$CompanyName, " (XET)", replacement = "")
-
-str_sub(test$CompanyName, "() (XET)")
-str_remove(test$CompanyName, "XET")
-
-
-gsub(' (XET)', '', test$CompanyName,)
-
-
-
-
-str(test)
-
-# Create 2 digit SIC code
-rawStaticData$SICshort <- as.character(rawStaticData$SIC)
-rawStaticData$SICshort <- as.numeric(substr(rawStaticData$SICshort, 1, 2))
-
+# Create Region classifier
 rawStaticData$Region <- replace(rawStaticData$Country, !rawStaticData$Country == "United States", "European")
 rawStaticData$Region <- replace(rawStaticData$Region, rawStaticData$Region == "United States", "US")
 rawStaticData$Region <- as.factor(rawStaticData$Region)
-str(rawStaticData)
 
-
-## Rename variables
-rawStaticData$Region2 <- gsub("European", "EU", rawStaticData$Region) # create shortname of Region EU instead of European 
-
-#N of duplicates
-nrow(rawStaticData) - length(unique(rawStaticData$Symbol))
 
 ### join dynamic and static data
 rawData <- rawStaticData %>% inner_join(TSdata)
-nrow(rawData)
-
 rm(rawStaticData, TSdata)
 
+### Write data
 write.csv2(rawData, "rawdata/rawData.csv", row.names=FALSE)
 
