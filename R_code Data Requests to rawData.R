@@ -82,7 +82,7 @@ rawStaticData <- read_xlsx("rawdata/StaticData/StaticData.xlsx") %>%
          Country = Market,
          Industry = `IND. GROUP MNEM`,
          SIC = `SIC CODE 1`) %>%
-  select(Symbol, CompanyName, Currency, Country, Industry, Sector, SIC, Activity, History)
+  select(Symbol, CompanyName, Currency, Country, Exchange, Industry, Sector, SIC, Activity, History)
 
 # Some European Companynames are duplicates with "(XET)" expression, with or without space before. Remove those expressions.
 newName <- str_remove(rawStaticData$CompanyName, "\\s\\(XET\\)")
